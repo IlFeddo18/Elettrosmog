@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Titolo-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    
+    <title>Elettrosmog</title>
+
+    <script src="script.js" defer></script>
+</head>
+<body class="background"> 
+
+    <!-- Intestazione 
+    <p class="intestazione">
+        <span class="fontIntestazione">Educazione Civica: <i>Stistemi e reti</i></span>
+        <span class="fontIntestazione">Docente: <i>Carlo Epis</i></span>
+    </p> -->
+
+    <div class="page-wrapper" id="mainWrapper">
+        <section id="hero-section">
+            <div class="typeWriter" id="title">
+                <!-- Titotlo -->
+                <h1 class="titleFont">elettrosmog</h1>
+                <br>
+                <!-- Sottotitolo -->
+                <h2 class="subtitleFont">Il mondo invisibile che ci circonda</h2>
+            </div>
+
+            <!-- INDEX MAP -->
+            <div class="branches-container" id="index-map">
+                <a href="javascript:void(0)" onclick="openSection(0)" class="node-btn branch-teal">Introduzione</a>
+                <a href="javascript:void(0)" onclick="openSection(1)" class="node-btn branch-lightgreen">Spettro ed effetti</a>
+                <a href="javascript:void(0)" onclick="openSection(2)" class="node-btn branch-yellow">Sorgenti e reti cellulari</a>
+                <a href="javascript:void(0)" onclick="openSection(3)" class="node-btn branch-orange">Misurazione, normative, esposizione</a>
+                <a href="javascript:void(0)" onclick="openSection(4)" class="node-btn branch-red">Istituzioni e prevenzione</a>
+            </div>
+
+            <!-- Sub Index Map -->            
+            <div id="sub-navigation-container" class="hidden-content">
+                <div class="sub-navigation">
+                    <button id="prev-arrow" class="nav-arrow" onclick="changeSection(-1)">❮</button>
+                    <div id="sub-menu-wrapper">
+                        <div class="sub-group active" data-index="0">
+                            <span class="riquadro-mini" onclick="mostraPagina('introduzione/motivo')">Perché parlarne?</span>
+                            <span class="riquadro-mini" onclick="mostraPagina('introduzione/definizione')">Cosa sono le onde elettromagnetiche?</span>
+                            <span class="riquadro-mini" onclick="mostraPagina('introduzione/componenti')">Le componenti essenziali</span>
+                        </div>
+                        <div class="sub-group" data-index="1">
+                            <span class="riquadro-mini" onclick="mostraPagina('spettro/caratteristiche')">Frequenza e lunghezza d'onda</span>
+                            <span class="riquadro-mini" onclick="mostraPagina('spettro/spettro')">Spettro elettromagnetico</span>
+                            <span class="riquadro-mini" onclick="mostraPagina('spettro/radiazioni')">Radiazioni ionizzanti e non ionizzanti</span>
+                            <span class="riquadro-mini" onclick="mostraPagina('spettro/elettrosmog')">L'elettrosmog</span>
+                        </div>
+                        <div class="sub-group" data-index="2">
+                            <span class="riquadro-mini" onclick="mostraPagina('sorgenti/sorgenti')">Sorgenti ambientali</span>
+                            <span class="riquadro-mini" onclick="mostraPagina('sorgenti/rete')">Logica della rete</span>
+                            <span class="riquadro-mini" onclick="mostraPagina('sorgenti/telefonia')">Telefonia mobile</span>
+                            <span class="riquadro-mini" onclick="mostraPagina('sorgenti/5G')">Il 5G</span>
+                        </div>
+                        <div class="sub-group" data-index="3">
+                            <span class="riquadro-mini" onclick="mostraPagina('misurazione/misurazione')">Misurazione del SAR</span>
+                            <span class="riquadro-mini" onclick="mostraPagina('misurazione/normative')">Normative</span>
+                            <span class="riquadro-mini" onclick="mostraPagina('misurazione/esposizione')">Esposizione alla frequenza localizzata</span>
+                        </div>
+                        <div class="sub-group" data-index="4">
+                            <span class="riquadro-mini" onclick="mostraPagina('istituzioni/consigli')">Consigli per ridurre l'esposizione</span>
+                            <span class="riquadro-mini" onclick="mostraPagina('istituzioni/fonti')">Fonti affidabili e istituzioni di riferimento</span>
+                            <span class="riquadro-mini" onclick="mostraPagina('istituzioni/ARPA')">Il ruolo di ARPA</span>
+                        </div>
+                    </div>
+                
+                    <button id="next-arrow" class="nav-arrow" onclick="changeSection(1)">❯</button>
+                </div>
+            </div>
+
+            <main id="content-area" class="hidden-content"></main>
+        </section>
+    </div>
+    
+    <!-- Firme 
+    <p class="intestazione">
+        <span class="fontIntestazione">By <i>Legrenzi Federico</i></span>
+        <span class="fontIntestazione">Classe <i>3^INF</i></span>
+    </p> -->
+</body>
+</html>

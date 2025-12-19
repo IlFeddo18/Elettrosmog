@@ -1,0 +1,388 @@
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: medium;
+  background: linear-gradient(
+    to bottom right,
+    #000000 10%,
+    #740097
+  );
+  background-attachment: fixed;
+  margin-bottom: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+/* Titolo */
+.titleFont{
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 75px;
+  transition: transform 0.8s cubic-bezier(0.85, 0, 0.15, 1), 
+              font-size 0.8s cubic-bezier(0.85, 0, 0.15, 1);
+}
+.typeWriter h1{
+  overflow: hidden;             
+  border-right: 4px solid #a855f7; 
+  white-space: nowrap;          
+  margin: 0 auto;               
+  width: 720px;
+  letter-spacing: 2px; 
+  
+  /* Definizione delle animazioni */
+  animation: 
+    typing 2s steps(30, end) forwards, 
+    blink-caret .75s step-end infinite,
+    hide-cursor 0.5s ease forwards 3.60s;
+}
+
+/* Animazione del movimento di scrittura */
+@keyframes typing {
+  from { width: 0ch }
+  to { width: 720px }
+}
+/* Animazione del cursore che lampeggia */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #a855f7; }
+}
+/* Animazione per nascondere il cursore alla fine della scrittura */
+@keyframes hide-cursor {
+  to { border-right-color: transparent; }
+} 
+
+/* Sottotitolo */
+.subtitleFont{
+  text-align: center;
+  color: #e0e0e0;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 20px;
+  margin-bottom: 40px;
+  
+}
+.typeWriter h2{
+  overflow: hidden;              
+  white-space: nowrap;          
+  letter-spacing: 2px;
+  margin: 0 auto;               
+  width: 0px;
+  border-right: 3px solid transparent;
+
+  animation: 
+    typingh2 3s steps(40, end) forwards 3s, 
+    blink-caret .75s step-end infinite 3s,
+    hide-cursor 0.5s ease forwards 6.60s;
+}
+
+/* Animazione del movimento di scrittura */
+@keyframes typingh2 {
+  from { width: 0ch }
+  to { width: 400px }
+}
+
+
+/* Stile bottoni dei nodi */
+.branches-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+.node-btn {
+  display: inline-block;
+  padding: 15px 25px;
+  margin: 10px;
+  background: rgba(255, 255, 255, 0.05); 
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  text-decoration: none;
+  font-family: 'Exo 2', sans-serif;
+  transition: all 0.3s ease;
+
+  opacity: 0; 
+  transform: translateY(20px); 
+  animation: fadeInNode 0.8s ease forwards;
+}
+@keyframes fadeInNode {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Iniziamo dal secondo 7.5 per dare un attimo di respiro dopo il sottotitolo */
+.node-btn:nth-child(1) { animation-delay: 6.5s; }
+.node-btn:nth-child(2) { animation-delay: 6.8s; }
+.node-btn:nth-child(3) { animation-delay: 7.1s; }
+.node-btn:nth-child(4) { animation-delay: 7.4s; }
+.node-btn:nth-child(5) { animation-delay: 7.7s; }
+
+/* Colori dei bordi basati sullo schema */
+.branch-teal { border-left: 5px solid #4fd1c5; }
+.branch-lightgreen { border-left: 5px solid #9ae6b4; }
+.branch-yellow { border-left: 5px solid #f6e05e; }
+.branch-orange { border-left: 5px solid #f6ad55; }
+.branch-red { border-left: 5px solid #fc8181; }
+
+.node-btn:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); /* Glow viola */
+}
+
+/* Intestazione */
+.page-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Quando la sezione sale */
+.page-wrapper.nav-up {
+  justify-content: flex-start; 
+  padding-top: 40px;
+}
+
+#hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 0.8s cubic-bezier(0.85, 0, 0.15, 1), 
+              font-size 0.8s ease;
+  z-index: 10;
+}
+
+.nav-up #hero-section {
+  transform: translateY(0%);
+  padding-top: 10px; 
+}
+
+.nav-up .titleFont {
+  font-size: 50px; 
+  transition: translateY(-10vh);
+}
+
+
+/* Area contenuti */
+.hidden-content {
+  opacity: 0;
+  transform: translateY(50px);
+  width: 100%;
+  max-width: 900px;
+  display: none;
+}
+
+#content-area {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+  width: 90%;
+  max-width: 1000px;
+  margin-top: -20vh; 
+}
+
+.nav-up #content-area {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  margin-top: 20px; 
+}
+
+.show-content {
+  display: flex !important; 
+  flex-direction: column;
+  align-items: center;
+  animation: fadeInUp 0.8s forwards 0.5s;
+  opacity: 1;
+  visibility: visible;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.node-btn.active {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #a855f7;
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
+    transform: translateY(-5px);
+}
+
+/* Contenitore per Sottosezioni e Frecce */
+.sub-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.sub-menu {
+    display: flex;
+    gap: 15px;
+    transition: all 0.5s ease; 
+}
+
+.nav-arrow {
+    background: none;
+    border: none;
+    color: #a855f7;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: opacity 0.4s ease;
+    opacity: 1;
+}
+
+.nav-arrow.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#sub-menu-wrapper {
+    overflow: hidden; 
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.sub-group {
+    display: none; 
+    gap: 15px;
+    animation: slideIn 0.5s ease forwards;
+}
+
+.sub-group.active {
+    display: flex; 
+}
+
+.pinMode{
+  position: fixed;
+}
+
+.riquadro-mini {
+    padding: 8px 15px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #e0e0e0;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.riquadro-mini:hover {
+    background: rgba(168, 85, 247, 0.2);
+    border-color: #a855f7;
+}
+
+.sub-group.active .riquadro-mini {
+  animation: fadeInSub 0.5s ease forwards;
+}
+
+/* Ritardi per l'effetto uno alla volta */
+.sub-group.active .riquadro-mini:nth-child(1) { animation-delay: 0.1s; }
+.sub-group.active .riquadro-mini:nth-child(2) { animation-delay: 0.2s; }
+.sub-group.active .riquadro-mini:nth-child(3) { animation-delay: 0.3s; }
+.sub-group.active .riquadro-mini:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInSub {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animazione per il cambio sottosezioni */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Pagine */
+.glassBox{
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
+  padding-top: 0%;
+  padding-bottom: 0%;
+  padding: 1%;
+  color: white;
+  font-size: 17.5px;
+  font-weight: bold;
+}
+
+.fonth2{
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+  font-size: 30px;
+}
+
+.fonth3{
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+  font-size: 20px;
+}
+.border{
+  border-radius: 16px;
+}
+
+/* Evidenziazione sottosezione attiva nell'indice */
+.riquadro-mini.active-sub {
+    background: rgba(168, 85, 247, 0.4);
+    border-color: #a855f7;
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+    color: white;
+}
+
+/* Container frecce dentro il contenuto */
+.content-nav-top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.mini-arrow {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.5);
+    color: #e0e0e0;
+    padding: 5px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Exo 2', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.mini-arrow:hover {
+    background: #a855f7;
+    color: white;
+}
+
+/* Firma */
+.firma{
+  position: fixed;
+}
